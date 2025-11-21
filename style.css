@@ -84,15 +84,24 @@ input {
 }
 
 /*  */
-.body-container{
+.body-container {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #4568DC;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+    /* 
+      A CORREÇÃO É AQUI:
+      Adicionamos o gradiente azul/roxo com transparência sobre o mesmo GIF.
+    */
+    background-image: 
+        linear-gradient(to right, rgba(176, 106, 179, 0.7), rgba(69, 104, 220, 0.7)),
+        url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW43MWJiNWhwZ2lud3I5N214ODhuZGxsbDYxa2ZuNWR5M21zMmh6MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fixa o fundo para um efeito melhor */
 }
 .container {
     background-color: #ffffff;
@@ -169,12 +178,22 @@ input {
 }
 
 .overlay {
-    background: #6441A5;
-    background: -webkit-linear-gradient(to right, #6441A5, #2a0845);
-    background: linear-gradient(to right, #6441A5, #2a0845);
+    /* ---- INÍCIO DA ALTERAÇÃO ---- */
+
+    /*
+      Aplicamos o gradiente roxo original do overlay, mas com transparência (70%),
+      e por baixo colocamos o MESMO GIF do fundo da página.
+    */
+    background-image: 
+        linear-gradient(to right, rgba(100, 65, 165, 0.7), rgba(42, 8, 69, 0.7)),
+        url("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeW43MWJiNWhwZ2lud3I5N214ODhuZGxsbDYxa2ZuNWR5M21zMmh6MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/A06UFEx8jxEwU/giphy.gif");
+
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 0;
+    background-position: center; /* Centraliza a imagem de fundo */
+
+    /* ---- FIM DA ALTERAÇÃO ---- */
+    
     color: #ffffff;
     position: relative;
     left: -100%;
